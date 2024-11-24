@@ -1,10 +1,12 @@
 name: first-workflow
-on: workflow_dispatch
+on: push
 jobs:
-  first-job:
-    runs-on: ubuntu-latest
+    lint-test-deploy:
+	runs-on: ubuntu-latest
     steps:
-      - name: first-greeting
-        run: echo "hello world"
-      - name: first-bye
-        run: echo "done! good bye"
+      - name: lint-step
+        run: lint
+      - name: test-step
+        run: test
+      - name: build-step
+        run: build
